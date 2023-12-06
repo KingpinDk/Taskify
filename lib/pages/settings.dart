@@ -13,7 +13,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF2A3C44),
+      backgroundColor: MyTheme.statPage[MyTheme.currTheme],
       body: Center(
         child:Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -22,18 +22,19 @@ class _SettingsState extends State<Settings> {
             Container(
               height: 70,
               decoration: BoxDecoration(
-                color: Color(0xFF30444E),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                color: MyTheme.navBtm[MyTheme.currTheme],
+                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
                 shape: BoxShape.rectangle
               ),
               margin: const EdgeInsets.only(left: 20.0, right: 20.0),
               child: Center(
                 child: ListTile(
-                  leading: MyTheme.mode[MyTheme.currTheme],
+                  leading: MyTheme.modeIcon[MyTheme.currTheme],
                   title: Text(MyTheme.themeMode[MyTheme.currTheme]),
                   onTap: changeTheme,
                   titleTextStyle: TextStyle(
-                      fontSize: 20.0
+                      fontSize: 20.0,
+                    color: MyTheme.fontColor[MyTheme.currTheme]
                   ),
 
                 ),
@@ -53,5 +54,6 @@ class _SettingsState extends State<Settings> {
         MyTheme.currTheme = 0;
       }
     });
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Move to Next Page"), duration: Duration(milliseconds: 300),));
   }
 }

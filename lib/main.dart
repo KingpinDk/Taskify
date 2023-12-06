@@ -16,17 +16,17 @@ class Taskify extends StatefulWidget {
 }
 
 class _TaskifyState extends State<Taskify> {
+
+
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    //BOTTOM < o = AND TOP STATUS BAR
-    SystemUiOverlayStyle sOverlay = const SystemUiOverlayStyle(
+  Widget build(BuildContext context) {
+
+    SystemUiOverlayStyle sOverlay = SystemUiOverlayStyle(
+      statusBarColor: MyTheme.statPage[MyTheme.currTheme],
       statusBarBrightness: Brightness.light,
-      statusBarColor: Color(0xFF2A3C44),
       statusBarIconBrightness: Brightness.light,
 
-      systemNavigationBarColor: Color(0xFF30444E),
+      systemNavigationBarColor: MyTheme.navBtm[MyTheme.currTheme],
       systemNavigationBarIconBrightness: Brightness.light,
       systemNavigationBarDividerColor: Colors.transparent,
 
@@ -34,12 +34,6 @@ class _TaskifyState extends State<Taskify> {
       systemNavigationBarContrastEnforced: false,
     );
     SystemChrome.setSystemUIOverlayStyle(sOverlay);
-  }
-  // List<Color> iconColor = [Color(0xFF3DD598),Colors.white,Colors.white,Colors.white];
-  // List<Widget> pages = const [Home(), AddTask(), History(), Settings()];
-  // int currPage = 0;
-  @override
-  Widget build(BuildContext context) {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -48,21 +42,17 @@ class _TaskifyState extends State<Taskify> {
         extendBody: true,
         extendBodyBehindAppBar: true,
         bottomNavigationBar: CurvedNavigationBar(
-            color: Color(0xFF30444E),
-            backgroundColor: Color(0xFF2A3C44),
-            animationDuration: Duration(milliseconds: 500),
+            color: MyTheme.navBtm[MyTheme.currTheme],
+            backgroundColor: MyTheme.statPage[MyTheme.currTheme],
+            animationDuration: const Duration(milliseconds: 500),
             onTap:(index){
-              setState(() {
-                MyTheme.iconColor.setAll(0, [Colors.white,Colors.white,Colors.white,Colors.white]);
-                MyTheme.iconColor[index] = Color(0xFF3DD598);
-                MyTheme.currPage = index;
-              });
+              changePage(index);
             },
             items: [
-              Icon(Icons.home_filled, color: MyTheme.iconColor[0], size: 30.0,),
-              Icon(Icons.add_circle, color: MyTheme.iconColor[1], size: 30.0,),
-              Icon(Icons.history_sharp, color: MyTheme.iconColor[2], size: 30.0,),
-              Icon(Icons.settings, color: MyTheme.iconColor[3], size: 30.0,)
+              Icon(Icons.home_filled, color: MyTheme.iconColor[MyTheme.currTheme][0], size: 30.0,),
+              Icon(Icons.add_circle, color: MyTheme.iconColor[MyTheme.currTheme][1], size: 30.0,),
+              Icon(Icons.history_sharp, color: MyTheme.iconColor[MyTheme.currTheme][2], size: 30.0,),
+              Icon(Icons.settings, color: MyTheme.iconColor[MyTheme.currTheme][3], size: 30.0,)
             ]
 
         ),
@@ -70,5 +60,11 @@ class _TaskifyState extends State<Taskify> {
       ),
     );
   }
-  
+  changePage(int index){
+    setState(() {
+      MyTheme.iconColor[MyTheme.currTheme].setAll(0, MyTheme.initialIconColor[MyTheme.currTheme]);
+      MyTheme.iconColor[MyTheme.currTheme][index] = const Color(0xFF3DD598);
+      MyTheme.currPage = index;
+    });
+  }
 }
