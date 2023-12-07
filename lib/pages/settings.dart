@@ -25,9 +25,19 @@ class _SettingsState extends State<Settings> {
             const SizedBox(height: 10.0,),
             MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.shareWithFrndsIcon, MyTheme.shareWithFrndsString, MyTheme.fontColor[MyTheme.currTheme],(){}),
             const SizedBox(height: 10.0,),
-            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.historyIcon[MyTheme.histIndx], MyTheme.historyString[MyTheme.histIndx], MyTheme.fontColor[MyTheme.currTheme],(){}),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.historyIcon[MyTheme.histIndx], MyTheme.historyString[MyTheme.histIndx], MyTheme.fontColor[MyTheme.currTheme],powHistory),
             const SizedBox(height: 10.0,),
-            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.modeIcon[MyTheme.currTheme], MyTheme.themeMode[MyTheme.currTheme], MyTheme.fontColor[MyTheme.currTheme],(){}),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.autoIcon[MyTheme.autoIndx], MyTheme.autoPostPoneString[MyTheme.autoIndx], MyTheme.fontColor[MyTheme.currTheme],powAutoPostPone),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.supportUsIcon, MyTheme.supportUsString, MyTheme.fontColor[MyTheme.currTheme], (){}),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.feedBackIcon, MyTheme.feedBackString, MyTheme.fontColor[MyTheme.currTheme], (){}),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.languagesIcon, MyTheme.languagesString, MyTheme.fontColor[MyTheme.currTheme], (){}),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.ourOtherAppsIcon, MyTheme.ourOtherAppsString, MyTheme.fontColor[MyTheme.currTheme], (){}),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.aboutUsIcon, MyTheme.aboutUsString, MyTheme.fontColor[MyTheme.currTheme], (){}),
             const SizedBox(height: 10.0,),
           ],
         ),
@@ -35,6 +45,16 @@ class _SettingsState extends State<Settings> {
     );
   }
 
+  void powAutoPostPone(){
+    setState(() {
+      MyTheme.autoIndx ^= 1;
+    });
+  }
+  void powHistory(){
+    setState(() {
+      MyTheme.histIndx ^= 1;
+    });
+  }
   void changeTheme(){
     setState(() {
       if(MyTheme.currTheme == 0) {
@@ -43,7 +63,7 @@ class _SettingsState extends State<Settings> {
         MyTheme.currTheme = 0;
       }
     });
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Move to next page for Complete changes"), duration: Duration(milliseconds: 600),));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Move to next page to apply changes"), duration: Duration(milliseconds: 600),));
   }
 
   Widget MyTile(Color tileColor, Icon icon, String str, Color fontColor, function){

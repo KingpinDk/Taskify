@@ -24,18 +24,47 @@ class MyTheme{
   static String shareWithFrndsString = "Share With Friends";
   static Icon shareWithFrndsIcon = const Icon(Icons.share_rounded, color: Color(0xFF3DD598),);
 
+  //Support Us
+  static String supportUsString = "Support Us";
+  static Icon supportUsIcon = const Icon(Icons.auto_awesome_sharp, color: Color(0xFF3DD598),);
+
   //History
   static int histIndx = 0;
   static List<String> historyString = ["History: ON", "History: OFF"];
   static List<Icon> historyIcon = [const Icon(Icons.history, color: Color(0xFF3DD598),),const Icon(Icons.history_toggle_off, color: Color(0xFF3DD598),)];
 
+  //Auto PostPone
+  static int autoIndx = 0;
+  static List<String> autoPostPoneString = ["Auto PostPone: ON","Auto PostPone: OFF"];
+  static List<Icon> autoIcon = [const Icon(Icons.next_plan, color: Color(0xFF3DD598),),const Icon(Icons.next_plan_outlined, color: Color(0xFF3DD598),),];
 
-  //
+  //Feed Back
+  static String feedBackString = "Feed back";
+  static Icon feedBackIcon = const Icon(Icons.feedback, color: Color(0xFF3DD598),);
+
+  //Languages
+  static String languagesString = "Languages";
+  static Icon languagesIcon = const Icon(Icons.language, color: Color(0xFF3DD598),);
+
+  //Privacy
+  static String privacyString = "Privacy";
+  static Icon privacyIcon = const Icon(Icons.shield_sharp, color: Color(0xFF3DD598),);
+
+  //Our Other Apps
+  static String ourOtherAppsString = "Our Other Apps";
+  static Icon ourOtherAppsIcon = const Icon(Icons.apps, color: Color(0xFF3DD598),);
+
+  //About Us
+  static String aboutUsString = "About Us";
+  static Icon aboutUsIcon = const Icon(Icons.pets_rounded, color: Colors.orange,);
+
+  //bottom navigation bar and screen elements
   static List<Color> navBtm = [const Color(0xFF30444E),Colors.white];
+  //system status bar and screen background
   static List<Color> statPage = [const Color(0xFF2A3C44),const Color(0xFFE5E5E5)];
 
   //Nav Bar Icon colors
-  static List<List<Color>> iconColor = [[const Color(0xFF3DD598),Colors.white,Colors.white,Colors.white],[const Color(0xFFB3B3B3),const Color(0xFFB3B3B3),const Color(0xFFB3B3B3),const Color(0xFFB3B3B3)]];
+  static List<List<Color>> iconColor = [[const Color(0xFF3DD598),Colors.white,Colors.white,Colors.white],[const Color(0xFF3DD598),const Color(0xFFB3B3B3),const Color(0xFFB3B3B3),const Color(0xFFB3B3B3)]];
   static List<List<Color>> initialIconColor = [[Colors.white,Colors.white,Colors.white,Colors.white],[const Color(0xFFB3B3B3),const Color(0xFFB3B3B3),const Color(0xFFB3B3B3),const Color(0xFFB3B3B3)]];
   static List<Widget> pages = const [Home(), AddTask(), History(), Settings()];
 
