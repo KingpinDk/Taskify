@@ -14,34 +14,23 @@ class _SettingsState extends State<Settings> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: MyTheme.statPage[MyTheme.currTheme],
-      body: Center(
-        child:Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      body: SafeArea(
+        child: ListView(
 
           children: [
-            Container(
-              height: 70,
-              decoration: BoxDecoration(
-                color: MyTheme.navBtm[MyTheme.currTheme],
-                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
-                shape: BoxShape.rectangle
-              ),
-              margin: const EdgeInsets.only(left: 20.0, right: 20.0),
-              child: Center(
-                child: ListTile(
-                  leading: MyTheme.modeIcon[MyTheme.currTheme],
-                  title: Text(MyTheme.themeMode[MyTheme.currTheme]),
-                  onTap: changeTheme,
-                  titleTextStyle: TextStyle(
-                      fontSize: 20.0,
-                    color: MyTheme.fontColor[MyTheme.currTheme]
-                  ),
-
-                ),
-              ),
-            )
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.modeIcon[MyTheme.currTheme], MyTheme.themeMode[MyTheme.currTheme], MyTheme.fontColor[MyTheme.currTheme], changeTheme),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.rateUsIcon, MyTheme.rateUsString, MyTheme.fontColor[MyTheme.currTheme],(){}),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.shareWithFrndsIcon, MyTheme.shareWithFrndsString, MyTheme.fontColor[MyTheme.currTheme],(){}),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.historyIcon[MyTheme.histIndx], MyTheme.historyString[MyTheme.histIndx], MyTheme.fontColor[MyTheme.currTheme],(){}),
+            const SizedBox(height: 10.0,),
+            MyTile(MyTheme.navBtm[MyTheme.currTheme], MyTheme.modeIcon[MyTheme.currTheme], MyTheme.themeMode[MyTheme.currTheme], MyTheme.fontColor[MyTheme.currTheme],(){}),
+            const SizedBox(height: 10.0,),
           ],
-        )
+        ),
       ),
     );
   }
@@ -54,6 +43,30 @@ class _SettingsState extends State<Settings> {
         MyTheme.currTheme = 0;
       }
     });
-    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Move to Next Page"), duration: Duration(milliseconds: 300),));
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Move to next page for Complete changes"), duration: Duration(milliseconds: 600),));
+  }
+
+  Widget MyTile(Color tileColor, Icon icon, String str, Color fontColor, function){
+    return Container(
+      height: 70,
+      decoration: BoxDecoration(
+          color: tileColor,
+          borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+          shape: BoxShape.rectangle
+      ),
+      margin: const EdgeInsets.only(left: 20.0, right: 20.0),
+      child: Center(
+        child: ListTile(
+          leading: icon,
+          title: Text(str),
+          onTap: function,
+          titleTextStyle: TextStyle(
+              fontSize: 20.0,
+              color: fontColor
+          ),
+
+        ),
+      ),
+    );
   }
 }

@@ -37,10 +37,9 @@ class _TaskifyState extends State<Taskify> {
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       home: Scaffold(
-        extendBody: true,
-        extendBodyBehindAppBar: true,
+        extendBody: false,
+        extendBodyBehindAppBar: false,
         bottomNavigationBar: CurvedNavigationBar(
             color: MyTheme.navBtm[MyTheme.currTheme],
             backgroundColor: MyTheme.statPage[MyTheme.currTheme],

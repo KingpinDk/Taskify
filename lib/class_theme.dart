@@ -12,8 +12,23 @@ class MyTheme{
   static List<Color> fontColor = [Colors.white,Colors.black];
 
   //settings page options
-  static List<String> themeMode = ["Dark Mode","Light Mode"];
-  static List<Icon> modeIcon = [const Icon(Icons.dark_mode, color: Color(0xFF3DD598),), const Icon(Icons.light_mode_sharp, color: Color(0xFF3DD598),)];
+  //theme
+  static List<String> themeMode = ["Light Mode","Dark Mode"];
+  static List<Icon> modeIcon = [const Icon(Icons.light_mode_sharp, color: Color(0xFF3DD598),), const Icon(Icons.dark_mode, color: Color(0xFF3DD598),)];
+
+  //Rate Us
+  static String rateUsString = "Rate Us";
+  static Icon rateUsIcon = const Icon(Icons.star, color: Color(0xFF3DD598),);
+
+  //Share With Friends
+  static String shareWithFrndsString = "Share With Friends";
+  static Icon shareWithFrndsIcon = const Icon(Icons.share_rounded, color: Color(0xFF3DD598),);
+
+  //History
+  static int histIndx = 0;
+  static List<String> historyString = ["History: ON", "History: OFF"];
+  static List<Icon> historyIcon = [const Icon(Icons.history, color: Color(0xFF3DD598),),const Icon(Icons.history_toggle_off, color: Color(0xFF3DD598),)];
+
 
   //
   static List<Color> navBtm = [const Color(0xFF30444E),Colors.white];
