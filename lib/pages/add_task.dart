@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:taskify/class_theme.dart';
 
 class AddTask extends StatefulWidget {
@@ -12,10 +12,12 @@ class AddTask extends StatefulWidget {
 class _AddTaskState extends State<AddTask> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: MyTheme.statPage[MyTheme.currTheme],
-      body: Center(
-        child: Text("Add Task"),
+    return Consumer<MyTheme>(
+      builder:(context, val, child)=> Scaffold(
+        backgroundColor:val.statPage[val.currTheme],
+        body: Center(
+          child: Text("Add Task"),
+        ),
       ),
     );
   }
