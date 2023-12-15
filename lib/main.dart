@@ -18,7 +18,7 @@ class Taskify extends StatefulWidget {
 
 class _TaskifyState extends State<Taskify> {
 
-
+  int right = 0,left = 0;
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -61,7 +61,7 @@ class _TaskifyState extends State<Taskify> {
                 ]
 
             ),
-            body: MyTheme.pages[MyTheme.currPage],
+            body: MyTheme.pages[val.currPage]
           ),
         );
         }
@@ -72,7 +72,7 @@ class _TaskifyState extends State<Taskify> {
     setState(() {
       MyTheme.iconColor[val.currTheme].setAll(0, MyTheme.initialIconColor[val.currTheme]);
       MyTheme.iconColor[val.currTheme][index] = const Color(0xFF3DD598);
-      MyTheme.currPage = index;
+      val.currPage = index;
     });
   }
 }

@@ -6,7 +6,8 @@ import 'package:taskify/pages/history.dart';
 
 class MyTheme extends ChangeNotifier{
   int currTheme = 1;
-  static int currPage = 0;
+  int currPage = 0;
+  static IconData fire = const IconData(0xe801);
 
   //settings page Font Color
   static List<Color> fontColor = [Colors.white,Colors.black];
