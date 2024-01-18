@@ -18,7 +18,6 @@ class _SettingsState extends State<Settings> {
         backgroundColor: val.statPage[val.currTheme],
         body: SafeArea(
           child: ListView(
-
             children: [
               const SizedBox(height: 10.0,),
               MyTile(val.navBtm[val.currTheme], MyTheme.modeIcon[val.currTheme], MyTheme.themeMode[val.currTheme], MyTheme.fontColor[val.currTheme], val.changeTheme),
