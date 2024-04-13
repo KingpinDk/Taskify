@@ -1,5 +1,7 @@
 # Taskify
 My first flutter app to be published on playstore
+# App Logo
+![Taskify logo](https://github.com/KingpinDk/Taskify/assets/118034679/fa9b63c6-2e18-4992-bddf-94116150f5c5)
 
 # Dark Mode  
 Task Page          |  Settings Page
