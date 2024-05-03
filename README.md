@@ -1,16 +1,16 @@
-# taskify
-
+# Taskify
 My first flutter app to be published on playstore
+# App Logo
+![Taskify logo](https://github.com/KingpinDk/Taskify/assets/118034679/fa9b63c6-2e18-4992-bddf-94116150f5c5)
 
-## Getting Started
+# Dark Mode  
+Task Page          |  Settings Page
+:-------------------------:|:-------------------------:
+![WhatsApp Image 2024-04-13 at 11 02 26 AM (3)](https://github.com/KingpinDk/Taskify/assets/118034679/8a459244-b255-4a83-a5fb-5c293bb130ef)|![WhatsApp Image 2024-04-13 at 11 02 26 AM (2)](https://github.com/KingpinDk/Taskify/assets/118034679/a120ed4b-dd0b-4821-aabd-068dc69b19c9)
 
-This project is a starting point for a Flutter application.
+# Light Mode  
+Task Page          |  Settings Page
+:-------------------------:|:-------------------------:
+![WhatsApp Image 2024-04-13 at 11 02 26 AM](https://github.com/KingpinDk/Taskify/assets/118034679/f3c4a617-12c7-4b79-ae83-48172f72e912)|![WhatsApp Image 2024-04-13 at 11 02 26 AM (1)](https://github.com/KingpinDk/Taskify/assets/118034679/84d750d4-cba5-42e0-99c3-f4ba2d94968c)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
