@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:taskify/class_theme.dart';
@@ -166,6 +167,8 @@ class _SettingsState extends State<Settings> {
     setState(() {
       MyTheme.histIndx ^= 1;
     });
+    var box = Hive.box("ThemeMode");
+    box.put("histIndx", MyTheme.histIndx);
   }
 
   SnackBar customSnack(str) {

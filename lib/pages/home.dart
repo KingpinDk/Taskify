@@ -99,11 +99,11 @@ class _HomeState extends State<Home> {
                                 children: [
                                   if (showDateHeader)
                                     Padding(
-                                      padding: EdgeInsets.symmetric(
+                                      padding: const EdgeInsets.symmetric(
                                           vertical: 16.0, horizontal: 16.0),
                                       child: Container(
                                         width: 300,
-                                        padding: EdgeInsets.all(9.0),
+                                        padding: const EdgeInsets.all(9.0),
                                         decoration: BoxDecoration(
                                           borderRadius:
                                               BorderRadius.circular(15),
@@ -112,7 +112,7 @@ class _HomeState extends State<Home> {
                                         child: Center(
                                           child: Text(
                                             '${val.taskList[index].date?.day} / ${val.taskList[index].date?.month} / ${val.taskList[index].date?.year}',
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 20.0,
                                                 color: Color(0xFF3DD598)),
@@ -121,19 +121,18 @@ class _HomeState extends State<Home> {
                                       ),
                                     ),
                                   taskTile(
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.label_important,
                                       color: Colors.white,
                                     ),
                                     tileColor: (val.taskList[index].priority ==
                                             "Medium")
-                                        ? Color(0xFF3DD598)
+                                        ? const Color(0xFF3DD598)
                                         : (val.taskList[index].priority ==
                                                 "Low")
                                             ? Colors.lime.shade600
                                             : Colors.red.shade500,
-                                    task: val.taskList[index].title +
-                                        index.toString(),
+                                    task: val.taskList[index].title,
                                     taskDesc: val.taskList[index].description,
                                     onPressed: () {
                                       showDialog(
@@ -217,10 +216,10 @@ class _HomeState extends State<Home> {
                                                           if (MyTheme
                                                                   .histIndx ==
                                                               0) {
-                                                            val.historyTaskList
-                                                                .add(
-                                                                    val.taskList[
-                                                                        index]);
+                                                            val.addHistory(
+                                                                val.taskList[
+                                                                    index],
+                                                                val.historyTaskList);
                                                           }
 
                                                           val.delete(index,
@@ -240,7 +239,7 @@ class _HomeState extends State<Home> {
                                                                 .stop();
                                                           }
                                                         },
-                                                        child: Text(
+                                                        child: const Text(
                                                           "Task Complete",
                                                           style: TextStyle(
                                                               color: Color(
@@ -306,7 +305,7 @@ class _HomeState extends State<Home> {
                                                                   .stop();
                                                             }
                                                           },
-                                                          child: Text(
+                                                          child: const Text(
                                                               "Discard Task",
                                                               style: TextStyle(
                                                                   color: Color(

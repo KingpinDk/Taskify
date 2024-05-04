@@ -46,27 +46,27 @@
                 <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
-        <!-- Provide required visibility configuration for API level 30 and above -->
-        <queries>
-            <!-- If your app checks for SMS support -->
-            <intent>
-                <action android:name="android.intent.action.VIEW" />
-                <data android:scheme="sms" />
-            </intent>
-            <!-- If your app checks for call support -->
-            <intent>
-                <action android:name="android.intent.action.VIEW" />
-                <data android:scheme="tel" />
-            </intent>
-            <!-- If your application checks for inAppBrowserView launch mode support -->
-            <intent>
-                <action android:name="android.support.customtabs.action.CustomTabsService" />
-            </intent>
-            <intent>
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="https" />
-            </intent>
-        </queries>
+        <!--        &lt;!&ndash; Provide required visibility configuration for API level 30 and above &ndash;&gt;-->
+        <!--        <queries>-->
+        <!--            &lt;!&ndash; If your app checks for SMS support &ndash;&gt;-->
+        <!--            <intent>-->
+        <!--                <action android:name="android.intent.action.VIEW" />-->
+        <!--                <data android:scheme="sms" />-->
+        <!--            </intent>-->
+        <!--            &lt;!&ndash; If your app checks for call support &ndash;&gt;-->
+        <!--            <intent>-->
+        <!--                <action android:name="android.intent.action.VIEW" />-->
+        <!--                <data android:scheme="tel" />-->
+        <!--            </intent>-->
+        <!--            &lt;!&ndash; If your application checks for inAppBrowserView launch mode support &ndash;&gt;-->
+        <!--            <intent>-->
+        <!--                <action android:name="android.support.customtabs.action.CustomTabsService" />-->
+        <!--            </intent>-->
+        <!--            <intent>-->
+        <!--                <action android:name="android.intent.action.VIEW" />-->
+        <!--                <category android:name="android.intent.category.BROWSABLE" />-->
+        <!--                <data android:scheme="https" />-->
+        <!--            </intent>-->
+        <!--        </queries>-->
     </application>
 </manifest>

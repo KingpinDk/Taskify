@@ -36,10 +36,11 @@ class _AddTaskState extends State<AddTask> {
         initialDate: _selectedDate ?? DateTime.now(),
         firstDate: DateTime.now(),
         lastDate: DateTime(2101));
-    if (picked != null && picked != _selectedDate)
+    if (picked != null && picked != _selectedDate) {
       setState(() {
         _selectedDate = picked;
       });
+    }
   }
 
   Future<void> _selectTime(BuildContext context) async {
@@ -47,10 +48,11 @@ class _AddTaskState extends State<AddTask> {
       context: context,
       initialTime: _selectedTime ?? TimeOfDay.now(),
     );
-    if (picked != null && picked != _selectedTime)
+    if (picked != null && picked != _selectedTime) {
       setState(() {
         _selectedTime = picked;
       });
+    }
   }
 
   @override
@@ -59,12 +61,13 @@ class _AddTaskState extends State<AddTask> {
         builder: (context, val, child) => MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF3DD598)),
+                colorScheme:
+                    ColorScheme.fromSeed(seedColor: const Color(0xFF3DD598)),
               ),
               home: Scaffold(
                 backgroundColor: val.statPage[val.currTheme],
                 appBar: AppBar(
-                  title: Text(
+                  title: const Text(
                     "Add Task",
                     style: TextStyle(
                         fontSize: 30,
@@ -76,21 +79,21 @@ class _AddTaskState extends State<AddTask> {
                 ),
                 body: SingleChildScrollView(
                   child: Container(
-                    margin: EdgeInsets.all(10.0),
+                    margin: const EdgeInsets.all(10.0),
                     child: Padding(
-                      padding: EdgeInsets.all(16.0),
+                      padding: const EdgeInsets.all(16.0),
                       child: Form(
                         key: _formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             TextFormField(
-                              cursorColor: Color(0xFF3DD598),
+                              cursorColor: const Color(0xFF3DD598),
                               style: TextStyle(
                                   color: MyTheme.fontColor[val.currTheme]),
                               controller: _headingController,
                               maxLength: 15,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Task Title',
                               ),
                               validator: (value) {
@@ -105,7 +108,7 @@ class _AddTaskState extends State<AddTask> {
                                   color: MyTheme.fontColor[val.currTheme]),
                               controller: _descriptionController,
                               maxLength: 120,
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                 labelText: 'Description',
                               ),
                               validator: (value) {
@@ -136,7 +139,8 @@ class _AddTaskState extends State<AddTask> {
                                     _selectedDate != null
                                         ? '${_selectedDate?.year}-${_selectedDate?.month}-${_selectedDate?.day}'
                                         : 'Select Date',
-                                    style: TextStyle(color: Color(0xFF3DD598)),
+                                    style: const TextStyle(
+                                        color: Color(0xFF3DD598)),
                                   ),
                                 ),
                               ],
@@ -162,8 +166,8 @@ class _AddTaskState extends State<AddTask> {
                                       _selectedTime != null
                                           ? '${_selectedTime?.hour}:${_selectedTime?.minute}'
                                           : 'Select Time',
-                                      style:
-                                          TextStyle(color: Color(0xFF3DD598))),
+                                      style: const TextStyle(
+                                          color: Color(0xFF3DD598))),
                                 ),
                               ],
                             ),
@@ -180,7 +184,7 @@ class _AddTaskState extends State<AddTask> {
                                 Checkbox(
                                   value: _notify,
                                   checkColor: Colors.white,
-                                  activeColor: Color(0xFF3DD598),
+                                  activeColor: const Color(0xFF3DD598),
                                   overlayColor:
                                       MaterialStateProperty.all(Colors.white),
                                   onChanged: (value) {
@@ -202,7 +206,7 @@ class _AddTaskState extends State<AddTask> {
                                       color: MyTheme.fontColor[val.currTheme]),
                                 ),
                                 DropdownButton<String>(
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: Color(0xFF3DD598)),
                                   borderRadius: BorderRadius.circular(30.0),
@@ -223,7 +227,7 @@ class _AddTaskState extends State<AddTask> {
                                                 ? Colors.lime
                                                 : (value == "High")
                                                     ? Colors.red
-                                                    : Color(0xFF3DD598)),
+                                                    : const Color(0xFF3DD598)),
                                       ),
                                     );
                                   }).toList(),
@@ -245,7 +249,7 @@ class _AddTaskState extends State<AddTask> {
                                       if (_selectedTime == null ||
                                           _selectedDate == null) {
                                         ScaffoldMessenger.of(context)
-                                            .showSnackBar(SnackBar(
+                                            .showSnackBar(const SnackBar(
                                           content: Text(
                                               "Time & Date necessary for Notification"),
                                           duration: Durations.extralong2,
@@ -327,7 +331,7 @@ class _AddTaskState extends State<AddTask> {
                                       }
                                     }
                                   },
-                                  child: Text('Taskify',
+                                  child: const Text('Taskify',
                                       style: TextStyle(
                                           fontSize: 20.0,
                                           fontWeight: FontWeight.bold,

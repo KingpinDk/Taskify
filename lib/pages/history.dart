@@ -18,7 +18,7 @@ class _HistoryState extends State<History> {
       builder: (context, val, child) => Scaffold(
         backgroundColor: val.statPage[val.currTheme],
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             "History",
             style: TextStyle(
                 fontSize: 30,
@@ -54,11 +54,11 @@ class _HistoryState extends State<History> {
                         children: [
                           if (showDateHeader)
                             Padding(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   vertical: 16.0, horizontal: 16.0),
                               child: Container(
                                 width: 300,
-                                padding: EdgeInsets.all(9.0),
+                                padding: const EdgeInsets.all(9.0),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(15),
                                   color: val.navBtm[val.currTheme],
@@ -66,7 +66,7 @@ class _HistoryState extends State<History> {
                                 child: Center(
                                   child: Text(
                                     '${val.historyTaskList[index].date?.day} / ${val.historyTaskList[index].date?.month} / ${val.historyTaskList[index].date?.year}',
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 20.0,
                                         color: Color(0xFF3DD598)),
@@ -75,13 +75,13 @@ class _HistoryState extends State<History> {
                               ),
                             ),
                           taskTile(
-                              icon: Icon(
+                              icon: const Icon(
                                 Icons.label_important,
                                 color: Colors.white,
                               ),
                               tileColor: (val.historyTaskList[index].priority ==
                                       "Medium")
-                                  ? Color(0xFF3DD598)
+                                  ? const Color(0xFF3DD598)
                                   : (val.historyTaskList[index].priority ==
                                           "Low")
                                       ? Colors.lime.shade600
@@ -91,9 +91,10 @@ class _HistoryState extends State<History> {
                               onPressed: () {},
                               trailing: IconButton(
                                   onPressed: () {
-                                    val.delete(index, val.historyTaskList);
+                                    val.deleteHistory(
+                                        index, val.historyTaskList);
                                   },
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.delete,
                                     color: Colors.white,
                                   ))),

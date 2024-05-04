@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:taskify/Services/notification_services.dart';
 import 'package:taskify/class_theme.dart';
+import 'package:taskify/task.dart';
 import 'package:taskify/widgets/curved_navigation_bar.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  Hive.registerAdapter(TaskAdapter());
+  await Hive.openBox("ThemeMode");
+
   WidgetsFlutterBinding.ensureInitialized();
   NotificationServices.init();
-  runApp(Taskify());
+  runApp(const Taskify());
 }
 
 class Taskify extends StatefulWidget {
@@ -39,7 +45,8 @@ class _TaskifyState extends State<Taskify> {
         SystemChrome.setSystemUIOverlayStyle(sOverlay);
         return MaterialApp(
           theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF3DD598)),
+            colorScheme:
+                ColorScheme.fromSeed(seedColor: const Color(0xFF3DD598)),
           ),
           debugShowCheckedModeBanner: false,
           home: Scaffold(

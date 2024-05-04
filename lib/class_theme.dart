@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:taskify/pages/add_task.dart';
 import 'package:taskify/pages/history.dart';
 import 'package:taskify/pages/home.dart';
@@ -6,11 +7,28 @@ import 'package:taskify/pages/settings.dart';
 import 'package:taskify/task.dart';
 
 class MyTheme extends ChangeNotifier {
-  int currTheme = 1;
-  int currPage = 0;
-
+  var box = Hive.box("ThemeMode");
+  late int currTheme;
+  static late int histIndx;
   late List<Task> taskList = [];
   late List<Task> historyTaskList = [];
+
+  MyTheme() {
+    _initCurrTheme();
+  }
+
+  _initCurrTheme() {
+    var box = Hive.box("ThemeMode");
+    currTheme = box.get("currTheme", defaultValue: 1) as int;
+    taskList =
+        (box.get("taskList", defaultValue: []) as List<dynamic>).cast<Task>();
+    historyTaskList =
+        (box.get("historyTaskList", defaultValue: []) as List<dynamic>)
+            .cast<Task>();
+    histIndx = box.get("histIndx", defaultValue: 0) as int;
+  }
+
+  int currPage = 0;
 
   static IconData fire = const IconData(0xe801);
 
@@ -53,7 +71,6 @@ class MyTheme extends ChangeNotifier {
   );
 
   //History
-  static int histIndx = 0;
   static List<String> historyString = ["History: ON", "History: OFF"];
   static List<Icon> historyIcon = [
     const Icon(
@@ -147,20 +164,36 @@ class MyTheme extends ChangeNotifier {
 
   void changeTheme() {
     currTheme ^= 1;
+    box.put("currTheme", currTheme);
     notifyListeners();
   }
 
   void add(Task task, List<Task> tl) {
     tl.add(task);
+    box.put("taskList", tl);
     notifyListeners();
   }
 
   void delete(int index, List<Task> tl) {
     tl.removeAt(index);
+    box.put("taskList", tl);
+    notifyListeners();
+  }
+
+  void addHistory(Task task, List<Task> tl) {
+    tl.add(task);
+    box.put("historyTaskList", tl);
+    notifyListeners();
+  }
+
+  void deleteHistory(int index, List<Task> tl) {
+    tl.removeAt(index);
+    box.put("historyTaskList", tl);
     notifyListeners();
   }
 
   void sortList(List<Task> taskList) {
     taskList.sort((a, b) => a.date!.compareTo(b.date ?? DateTime.now()));
+    box.put("taskList", taskList);
   }
 }
