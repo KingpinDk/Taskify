@@ -11,9 +11,9 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(TaskAdapter());
   await Hive.openBox("ThemeMode");
-
   WidgetsFlutterBinding.ensureInitialized();
   NotificationServices.init();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const Taskify());
 }
 
