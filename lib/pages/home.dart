@@ -18,8 +18,6 @@ class _HomeState extends State<Home> {
   final confettiController = ConfettiController();
   bool isPlaying = true;
 
-  //double percent = 1.0;
-
   @override
   void dispose() {
     // TODO: implement dispose
@@ -30,8 +28,8 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Stack(alignment: Alignment.topCenter, children: [
-      Consumer<MyTheme>(
-        builder: (context, val, child) => Scaffold(
+      Consumer<MyTheme>(builder: (context, val, child) {
+        return Scaffold(
             backgroundColor: val.statPage[val.currTheme],
             body: SafeArea(
               child: Column(
@@ -155,6 +153,11 @@ class _HomeState extends State<Home> {
                                                     actions: [
                                                       TextButton(
                                                         onPressed: () async {
+                                                          val.taskList[index]
+                                                                  .isCompleted =
+                                                              true;
+                                                          val.sortList(val
+                                                              .historyTaskList);
                                                           bool showConfetti = (index ==
                                                                   0) ||
                                                               (val
@@ -320,8 +323,8 @@ class _HomeState extends State<Home> {
                   )
                 ],
               ),
-            )),
-      ),
+            ));
+      }),
       ConfettiWidget(
         confettiController: confettiController,
         shouldLoop: false,

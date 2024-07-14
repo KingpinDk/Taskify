@@ -25,6 +25,7 @@ class MyTheme extends ChangeNotifier {
     historyTaskList =
         (box.get("historyTaskList", defaultValue: []) as List<dynamic>)
             .cast<Task>();
+    deleteAll(taskList, DateTime.now(), historyTaskList);
     histIndx = box.get("histIndx", defaultValue: 0) as int;
   }
 
@@ -195,5 +196,25 @@ class MyTheme extends ChangeNotifier {
   void sortList(List<Task> taskList) {
     taskList.sort((a, b) => a.date!.compareTo(b.date ?? DateTime.now()));
     box.put("taskList", taskList);
+    notifyListeners();
+  }
+
+  void deleteAll(
+      List<Task> taskList, DateTime today, List<Task> historyTaskList) {
+    for (int i = 0; i < taskList.length; i++) {
+      if (taskList[i].date != null &&
+          taskList[i]
+              .date!
+              .isBefore(DateTime(today.year, today.month, today.day))) {
+        historyTaskList.add(taskList[i]);
+        taskList.removeAt(i);
+        i--;
+      }
+    }
+    sortList(historyTaskList);
+    box.put("taskList", taskList);
+    box.put("historyTaskList", historyTaskList);
+
+    notifyListeners();
   }
 }

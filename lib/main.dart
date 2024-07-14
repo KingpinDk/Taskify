@@ -14,6 +14,24 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationServices.init();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  // var box = Hive.box("ThemeMode");
+  // List<Task> taskList = box.get("taskList");
+  // List<Task> historyTaskList = box.get("historyTaskList");
+  // DateTime today = DateTime.now();
+  // final date1 = DateTime(today.year, today.month, today.day);
+  // for (int i = 0; i < taskList.length; i++) {
+  //   DateTime? taskDate = taskList[i].date;
+  //
+  //   final date2 = DateTime(taskDate!.year, taskDate.month, taskDate.day);
+  //
+  //   if (date2.isBefore(date1)) {
+  //     taskList[i].isCompleted = false;
+  //     historyTaskList.add(taskList[i]);
+  //     taskList.removeAt(i);
+  //   }
+  // }
+  // box.put("taskList", taskList);
+  // box.put("historyTaskList", historyTaskList);
   runApp(const Taskify());
 }
 

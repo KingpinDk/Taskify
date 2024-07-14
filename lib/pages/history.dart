@@ -75,10 +75,13 @@ class _HistoryState extends State<History> {
                               ),
                             ),
                           taskTile(
-                              icon: const Icon(
-                                Icons.label_important,
-                                color: Colors.white,
-                              ),
+                              icon: val.historyTaskList[index].isCompleted
+                                  ? Icon(
+                                      Icons.check_box,
+                                      color: Colors.white,
+                                    )
+                                  : Icon(Icons.dangerous_rounded,
+                                      color: Colors.white),
                               tileColor: (val.historyTaskList[index].priority ==
                                       "Medium")
                                   ? const Color(0xFF3DD598)
